@@ -1,27 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useActiveAccount } from "thirdweb/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
+import { LoginButton } from "./components/LoginButton";
 
 export default function Home() {
+  const account = useActiveAccount();
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
       <div className="py-20">
         <Header />
 
         <div className="flex justify-center mb-20">
-          <ConnectButton
-            client={client}
-            appMetadata={{
-              name: "Example App",
-              url: "https://example.com",
-            }}
-          />
+          <LoginButton/>
         </div>
 
         <ThirdwebResources />
+        {account && (
+        <div className="mt-12 text-center">
+          You are logged in.{" "}
+          <a href="/gated-content" className="underline">
+            Go to the gated page
+          </a>
+        </div>
+      )}
       </div>
     </main>
   );
@@ -40,18 +44,12 @@ function Header() {
       />
 
       <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
-        thirdweb SDK
+        Token Gated
         <span className="text-zinc-300 inline-block mx-1"> + </span>
-        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
+        <span className="inline-block -skew-x-6 text-blue-500"> NFT </span>
       </h1>
 
-      <p className="text-zinc-300 text-base">
-        Read the{" "}
-        <code className="bg-zinc-800 text-zinc-300 px-2 rounded py-1 text-sm mx-1">
-          README.md
-        </code>{" "}
-        file to get started.
-      </p>
+      
     </header>
   );
 }
@@ -84,7 +82,9 @@ function ArticleCard(props: {
   title: string;
   href: string;
   description: string;
-}) {
+})
+ 
+{
   return (
     <a
       href={props.href + "?utm_source=next-template"}
