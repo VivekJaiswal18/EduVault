@@ -8,8 +8,8 @@ const cards = [
     imageUrl: "astro.jpg",
   },
   {
-    title: "Card 2",
-    description: "This is the description for card 2.",
+    title: "Psychology",
+    description: "This is a research paper on Psychology.",
     imageUrl: "pshyco1.jpg",
   },
   {
