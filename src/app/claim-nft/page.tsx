@@ -12,11 +12,12 @@ export default function NFTClaim(){
     const account = useActiveAccount();
 
     return(
-        <div>
-            <div className="p-4 flex flex-col">
-                <p>Claim NFT</p>
-                <p>You can claim NFT Here</p>
-                <div className="my-6">
+        <div className="min-h-screen font-montserrat flex flex-col items-center justify-center">
+        <div className="min-h-3.5 font-montserrat flex flex-col w-80 border rounded-lg items-center justify-center">
+            <div className="p-4 flex items-center justify-center flex-col">
+                <p className="font-bold text-3xl mb-6">Claim NFT</p>
+                <p className="text-white font-semibold">You can claim NFT Here</p>
+                <div className="my-6 mb-4">
                     <LoginButton/>
                 </div>
                 <TransactionButton 
@@ -34,12 +35,15 @@ export default function NFTClaim(){
             alert("NFT claimed")
         }}
         >Claim NFT</TransactionButton>
+        <div className="py-10">
         <Link  href={"/gated-content"}>
             <button className="mt-4 bg-zinc-100 text-black px-4 py-2 rounded-md">
                 Go To Gated Page
             </button>
         </Link>
             </div>
+            </div>
+        </div>
         </div>
     )
 }

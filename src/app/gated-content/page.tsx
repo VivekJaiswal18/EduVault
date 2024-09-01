@@ -4,16 +4,6 @@ import { hasAccess } from "../actions/conditions";
 import { GatedContent } from "./gatedcontent";
 import Link from "next/link";
 
-/**
- * This page is gated and should only allow access for wallets have logged in and pass the "gate condition"
- * The gating condition for a wallet address is up to you. Usually we check:
- * 1. If a wallet address owns a certain NFT
- * 2. If a wallet address owns some ERC20 tokens
- * 3. If a wallet address owns some NFT/ERC20 tokens and the owned balance must be greater than a certain amount.
- *
- * To make it clean, we put the logic in a function called `hasAccess(wallet: string)` which returns a boolean.
- * If `TRUE`: The users can access the page's content.
- */
 export default async function GatedPage() {
   const jwt = cookies().get("jwt");
   if (!jwt?.value) {
@@ -49,10 +39,10 @@ const MustLogin = () => (
   </div>
 );
 
-const reason = "you do not own any NFT"; // replace this with your own reason
+const reason = "you do not own any NFT"; 
 
 const NotAllowed = () => (
-  <div className="text-center">
+  <div className="text-center justify-center font-montserrat">
     You are logged in but you do not have access to this page because {reason}
     <Link href="/">
     <button>Go To Login Page</button></Link>

@@ -9,7 +9,7 @@ import { LoginButton } from "./components/LoginButton";
 export default function Home() {
   const account = useActiveAccount();
   return (
-    <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
+    <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto font-montserrat">
       <div className="py-20">
         <Header />
 
@@ -22,7 +22,11 @@ export default function Home() {
         <div className="mt-12 text-center">
           You are logged in.{" "}
           <a href="/gated-content" className="underline">
+          <div className="border-l-emerald-400 mt-3">
+          <button className="border-2 border-green-300 px-4 py-2 rounded-lg">
             Go to the gated page
+            </button>
+            </div>
           </a>
         </div>
       )}
@@ -34,15 +38,19 @@ export default function Home() {
 function Header() {
   return (
     <header className="flex flex-col items-center mb-20 md:mb-20">
-      <Image
-        src={thirdwebIcon}
-        alt=""
-        className="size-[150px] md:size-[150px]"
-        style={{
-          filter: "drop-shadow(0px 0px 24px #a726a9a8)",
-        }}
-      />
-
+        {/* <Image
+          src={thirdwebIcon}
+          alt=""
+          className="size-[150px] md:size-[150px]"
+          style={{
+            filter: "drop-shadow(0px 0px 24px #a726a9a8)",
+          }}
+        /> */}
+<h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
+        EduVault
+        {/* <span className="text-zinc-300 inline-block mx-1"> + </span> */}
+        {/* <span className="inline-block -skew-x-6 text-blue-500"> NFT </span> */}
+      </h1>
       <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
         Token Gated
         <span className="text-zinc-300 inline-block mx-1"> + </span>
@@ -58,21 +66,21 @@ function ThirdwebResources() {
   return (
     <div className="grid gap-4 lg:grid-cols-3 justify-center">
       <ArticleCard
-        title="thirdweb SDK Docs"
-        href="https://portal.thirdweb.com/typescript/v5"
-        description="thirdweb TypeScript SDK documentation"
+        title="EduVault Features"
+        href="/"
+        description="Learn about EduVault more"
       />
 
       <ArticleCard
-        title="Components and Hooks"
-        href="https://portal.thirdweb.com/typescript/v5/react"
-        description="Learn about the thirdweb React components and hooks in thirdweb SDK"
+        title="Capabalities and Uses"
+        href="/"
+        description="EduVault provides a vast variety of uses cases specifically for education"
       />
 
       <ArticleCard
-        title="thirdweb Dashboard"
-        href="https://thirdweb.com/dashboard"
-        description="Deploy, configure, and manage your smart contracts from the dashboard."
+        title="EduVault Dashboard"
+        href="/"
+        description="Connect, Publish Gated content, and manage that from the dashboard."
       />
     </div>
   );
